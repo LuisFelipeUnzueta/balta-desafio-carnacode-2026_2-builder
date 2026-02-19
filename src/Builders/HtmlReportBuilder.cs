@@ -3,7 +3,7 @@ using System;
 namespace DesignPatternChallenge.Builders
 {
     /// <summary>
-    /// Builder especializado para relatórios em HTML
+    /// Specialized builder for HTML reports
     /// </summary>
     public class HtmlReportBuilder : SalesReportBuilderBase<HtmlReportBuilder>
     {
@@ -14,13 +14,13 @@ namespace DesignPatternChallenge.Builders
 
         public HtmlReportBuilder WithResponsiveDesign()
         {
-            Console.WriteLine("[HTML] Design responsivo habilitado");
+            Console.WriteLine("[HTML] Responsive design enabled");
             return this;
         }
 
         public HtmlReportBuilder WithTheme(string themeName)
         {
-            Console.WriteLine($"[HTML] Tema '{themeName}' aplicado");
+            Console.WriteLine($"[HTML] Theme '{themeName}' applied");
             return this;
         }
     }

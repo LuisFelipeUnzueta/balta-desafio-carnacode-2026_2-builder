@@ -4,16 +4,16 @@ using DesignPatternChallenge.Models;
 namespace DesignPatternChallenge.Builders
 {
     /// <summary>
-    /// Interface Builder com padrão Fluent para construção de relatórios
+    /// Builder interface with Fluent pattern for report construction
     /// </summary>
     public interface IReportBuilder
     {
-        // Configurações obrigatórias
+        // Mandatory configurations
         IReportBuilder SetTitle(string title);
         IReportBuilder SetFormat(string format);
         IReportBuilder SetDateRange(DateTime startDate, DateTime endDate);
-        
-        // Configurações opcionais
+
+        // Optional configurations
         IReportBuilder WithHeader(string headerText);
         IReportBuilder WithFooter(string footerText);
         IReportBuilder WithCharts(string chartType);
@@ -26,8 +26,8 @@ namespace DesignPatternChallenge.Builders
         IReportBuilder WithPageSettings(string orientation, string pageSize);
         IReportBuilder WithPageNumbers();
         IReportBuilder WithBranding(string companyLogo, string waterMark);
-        
-        // Método de construção final
+
+        // Final build method
         SalesReport Build();
     }
 }

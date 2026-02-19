@@ -10,54 +10,54 @@ namespace DesignPatternChallenge
         static void Main(string[] args)
         {
             Console.WriteLine("╔══════════════════════════════════════════╗");
-            Console.WriteLine("║  Sistema de Relatórios - Builder Pattern ║");
+            Console.WriteLine("║   Report System - Builder Pattern        ║");
             Console.WriteLine("╚══════════════════════════════════════════╝\n");
 
-            // ========== EXEMPLO 1: Builder Fluente Básico ==========
-            Console.WriteLine(">>> EXEMPLO 1: Builder Fluente - Relatório Customizado");
+            // ========== EXAMPLE 1: Basic Fluent Builder ==========
+            Console.WriteLine(">>> EXAMPLE 1: Fluent Builder - Customized Report");
             var report1 = new SalesReportBuilder()
-                .SetTitle("Vendas Mensais - Janeiro 2024")
+                .SetTitle("Monthly Sales - January 2024")
                 .SetFormat("PDF")
                 .SetDateRange(new DateTime(2024, 1, 1), new DateTime(2024, 1, 31))
-                .WithHeader("Relatório de Vendas")
-                .WithFooter("Confidencial")
+                .WithHeader("Sales Report")
+                .WithFooter("Confidential")
                 .WithCharts("Bar")
-                .WithColumns("Produto", "Quantidade", "Valor")
-                .WithFilters("Status=Ativo")
-                .WithSorting("Valor")
-                .WithGrouping("Categoria")
+                .WithColumns("Product", "Quantity", "Value")
+                .WithFilters("Status=Active")
+                .WithSorting("Value")
+                .WithGrouping("Category")
                 .WithTotals()
                 .WithPageSettings("Portrait", "A4")
                 .WithPageNumbers()
-                .WithBranding("logo.png", "Confidencial")
+                .WithBranding("logo.png", "Confidential")
                 .Build();
 
             report1.Generate();
 
-            // ========== EXEMPLO 2: Director Pattern ==========
-            Console.WriteLine("\n>>> EXEMPLO 2: Director - Relatório Mensal Pré-configurado");
+            // ========== EXAMPLE 2: Director Pattern ==========
+            Console.WriteLine("\n>>> EXAMPLE 2: Director - Pre-configured Monthly Report");
             var director = new ReportDirector();
             var report2 = director.CreateMonthlyReport(
-                "Relatório Mensal - Fevereiro 2024",
+                "Monthly Report - February 2024",
                 new DateTime(2024, 2, 1)
             );
             report2.Generate();
 
-            Console.WriteLine("\n>>> EXEMPLO 3: Director - Relatório Trimestral");
+            Console.WriteLine("\n>>> EXAMPLE 3: Director - Quarterly Report");
             var report3 = director.CreateQuarterlyReport(
-                "Relatório Q1 2024",
+                "Q1 2024 Report",
                 2024,
                 1
             );
             report3.Generate();
 
-            // ========== EXEMPLO 4: Builders Especializados ==========
-            Console.WriteLine("\n>>> EXEMPLO 4: Builder Especializado - PDF");
+            // ========== EXAMPLE 4: Specialized Builders ==========
+            Console.WriteLine("\n>>> EXAMPLE 4: Specialized Builder - PDF");
             var report4 = new PdfReportBuilder()
-                .SetTitle("Relatório Anual 2024")
+                .SetTitle("Annual Report 2024")
                 .SetDateRange(new DateTime(2024, 1, 1), new DateTime(2024, 12, 31))
-                .WithHeader("Relatório Anual")
-                .WithColumns("Trimestre", "Vendas", "Lucro")
+                .WithHeader("Annual Report")
+                .WithColumns("Quarter", "Sales", "Profit")
                 .WithCharts("Line")
                 .WithTotals()
                 .WithCompression()
@@ -65,31 +65,31 @@ namespace DesignPatternChallenge
                 .Build();
             report4.Generate();
 
-            Console.WriteLine("\n>>> EXEMPLO 5: Builder Especializado - Excel");
+            Console.WriteLine("\n>>> EXAMPLE 5: Specialized Builder - Excel");
             var report5 = new ExcelReportBuilder()
-                .SetTitle("Análise de Vendedores")
+                .SetTitle("Salesperson Analysis")
                 .SetDateRange(new DateTime(2024, 1, 1), new DateTime(2024, 3, 31))
-                .WithColumns("Vendedor", "Meta", "Realizado", "Comissão")
-                .WithFilters("Região=Sul", "Status=Ativo")
-                .WithGrouping("Região")
+                .WithColumns("Salesperson", "Target", "Achieved", "Commission")
+                .WithFilters("Region=South", "Status=Active")
+                .WithGrouping("Region")
                 .WithAutoFilter()
                 .WithMultipleSheets(3)
                 .Build();
             report5.Generate();
 
-            Console.WriteLine("\n>>> EXEMPLO 6: Builder Especializado - HTML");
+            Console.WriteLine("\n>>> EXAMPLE 6: Specialized Builder - HTML");
             var report6 = new HtmlReportBuilder()
-                .SetTitle("Dashboard Interativo")
+                .SetTitle("Interactive Dashboard")
                 .SetDateRange(new DateTime(2024, 1, 1), new DateTime(2024, 12, 31))
                 .WithCharts("Pie")
-                .WithColumns("Produto", "Vendas", "Participação")
+                .WithColumns("Product", "Sales", "Share")
                 .WithResponsiveDesign()
                 .WithTheme("Dark")
                 .Build();
             report6.Generate();
 
-            // ========== EXEMPLO 7: Resumo Executivo ==========
-            Console.WriteLine("\n>>> EXEMPLO 7: Director - Resumo Executivo");
+            // ========== EXAMPLE 7: Executive Summary ==========
+            Console.WriteLine("\n>>> EXAMPLE 7: Director - Executive Summary");
             var report7 = director.CreateExecutiveSummary(
                 "Executive Summary Q4 2024",
                 new DateTime(2024, 10, 1),
@@ -98,7 +98,7 @@ namespace DesignPatternChallenge
             report7.Generate();
 
             Console.WriteLine("\n╔═══════════════════════════════════════════════╗");
-            Console.WriteLine("║  ✓ Todos os relatórios gerados com sucesso!  ║");
+            Console.WriteLine("║  ✓ All reports generated successfully!        ║");
             Console.WriteLine("╚═══════════════════════════════════════════════╝");
         }
     }

@@ -3,7 +3,7 @@ using System;
 namespace DesignPatternChallenge.Builders
 {
     /// <summary>
-    /// Builder especializado para relatórios em PDF
+    /// Specialized builder for PDF reports
     /// </summary>
     public class PdfReportBuilder : SalesReportBuilderBase<PdfReportBuilder>
     {
@@ -15,13 +15,13 @@ namespace DesignPatternChallenge.Builders
 
         public PdfReportBuilder WithCompression()
         {
-            Console.WriteLine("[PDF] Compressão habilitada");
+            Console.WriteLine("[PDF] Compression enabled");
             return this;
         }
 
         public PdfReportBuilder WithEncryption()
         {
-            Console.WriteLine("[PDF] Criptografia habilitada");
+            Console.WriteLine("[PDF] Encryption enabled");
             return this;
         }
     }

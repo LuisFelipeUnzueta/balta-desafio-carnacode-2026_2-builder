@@ -5,12 +5,12 @@ using DesignPatternChallenge.Models;
 namespace DesignPatternChallenge.Builders
 {
     /// <summary>
-    /// Base Builder usando Recursive Generics para manter o tipo concreto no encadeamento
+    /// Base Builder using Recursive Generics to maintain the concrete type in the chain
     /// </summary>
-    public abstract class SalesReportBuilderBase<T> : SalesReportBuilderInternal, IReportBuilder 
+    public abstract class SalesReportBuilderBase<T> : SalesReportBuilderInternal, IReportBuilder
         where T : SalesReportBuilderBase<T>
     {
-        // Implementação explícita da Interface para compatibilidade
+        // Explicit interface implementation for compatibility
         IReportBuilder IReportBuilder.SetTitle(string title) => SetTitle(title);
         IReportBuilder IReportBuilder.SetFormat(string format) => SetFormat(format);
         IReportBuilder IReportBuilder.SetDateRange(DateTime start, DateTime end) => SetDateRange(start, end);
@@ -27,7 +27,7 @@ namespace DesignPatternChallenge.Builders
         IReportBuilder IReportBuilder.WithPageNumbers() => WithPageNumbers();
         IReportBuilder IReportBuilder.WithBranding(string logo, string mark) => WithBranding(logo, mark);
 
-        // Métodos Tipados (Retornam T)
+        // Typed Methods (Return T)
         public T SetTitle(string title)
         {
             _title = title;
@@ -126,7 +126,7 @@ namespace DesignPatternChallenge.Builders
 
         public SalesReport Build()
         {
-            return new SalesReport(this); 
+            return new SalesReport(this);
         }
     }
 }

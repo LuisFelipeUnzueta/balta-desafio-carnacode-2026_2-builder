@@ -3,7 +3,7 @@ using System;
 namespace DesignPatternChallenge.Builders
 {
     /// <summary>
-    /// Builder padrão (não especializado)
+    /// Default builder (non-specialized)
     /// </summary>
     public class SalesReportBuilder : SalesReportBuilderBase<SalesReportBuilder>
     {

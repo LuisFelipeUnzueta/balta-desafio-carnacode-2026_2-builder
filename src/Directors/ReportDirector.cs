@@ -5,12 +5,12 @@ using DesignPatternChallenge.Builders;
 namespace DesignPatternChallenge.Directors
 {
     /// <summary>
-    /// Director: Encapsula lógica de construção para relatórios comuns
+    /// Director: Encapsulates construction logic for common reports
     /// </summary>
     public class ReportDirector
     {
         /// <summary>
-        /// Cria um relatório mensal padrão
+        /// Creates a standard monthly report
         /// </summary>
         public SalesReport CreateMonthlyReport(string title, DateTime month)
         {
@@ -21,9 +21,9 @@ namespace DesignPatternChallenge.Directors
                 .SetTitle(title)
                 .SetFormat("PDF")
                 .SetDateRange(startDate, endDate)
-                .WithHeader("Relatório Mensal de Vendas")
-                .WithFooter("Documento Confidencial")
-                .WithColumns("Produto", "Quantidade", "Valor")
+                .WithHeader("Monthly Sales Report")
+                .WithFooter("Confidential Document")
+                .WithColumns("Product", "Quantity", "Value")
                 .WithCharts("Bar")
                 .WithTotals()
                 .WithPageSettings("Portrait", "A4")
@@ -32,7 +32,7 @@ namespace DesignPatternChallenge.Directors
         }
 
         /// <summary>
-        /// Cria um relatório trimestral padrão
+        /// Creates a standard quarterly report
         /// </summary>
         public SalesReport CreateQuarterlyReport(string title, int year, int quarter)
         {
@@ -44,8 +44,8 @@ namespace DesignPatternChallenge.Directors
                 .SetTitle(title)
                 .SetFormat("Excel")
                 .SetDateRange(startDate, endDate)
-                .WithHeader("Relatório Trimestral")
-                .WithColumns("Vendedor", "Região", "Total")
+                .WithHeader("Quarterly Report")
+                .WithColumns("Salesperson", "Region", "Total")
                 .WithCharts("Line")
                 .WithGrouping("Região")
                 .WithTotals()
@@ -53,7 +53,7 @@ namespace DesignPatternChallenge.Directors
         }
 
         /// <summary>
-        /// Cria um relatório anual padrão
+        /// Creates a standard annual report
         /// </summary>
         public SalesReport CreateAnnualReport(string title, int year)
         {
@@ -63,32 +63,32 @@ namespace DesignPatternChallenge.Directors
             return new PdfReportBuilder()
                 .SetTitle(title)
                 .SetDateRange(startDate, endDate)
-                .WithHeader("Relatório Anual de Vendas")
-                .WithFooter($"© {year} - Todos os direitos reservados")
-                .WithColumns("Mês", "Vendas", "Crescimento")
+                .WithHeader("Annual Sales Report")
+                .WithFooter($"© {year} - All rights reserved")
+                .WithColumns("Month", "Sales", "Growth")
                 .WithCharts("Pie")
                 .WithSummary()
                 .WithTotals()
                 .WithPageSettings("Landscape", "A4")
                 .WithPageNumbers()
-                .WithBranding("logo.png", "Confidencial")
+                .WithBranding("logo.png", "Confidential")
                 .Build();
         }
 
         /// <summary>
-        /// Cria um resumo executivo
+        /// Creates an executive summary
         /// </summary>
         public SalesReport CreateExecutiveSummary(string title, DateTime startDate, DateTime endDate)
         {
             return new PdfReportBuilder()
                 .SetTitle(title)
                 .SetDateRange(startDate, endDate)
-                .WithHeader("Resumo Executivo")
-                .WithColumns("Indicador", "Valor", "Meta")
+                .WithHeader("Executive Summary")
+                .WithColumns("Indicator", "Value", "Target")
                 .WithCharts("Bar")
                 .WithSummary()
                 .WithPageSettings("Portrait", "A4")
-                .WithBranding("logo.png", "Confidencial")
+                .WithBranding("logo.png", "Confidential")
                 .Build();
         }
     }

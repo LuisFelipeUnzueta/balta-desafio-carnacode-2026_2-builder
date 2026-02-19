@@ -4,11 +4,11 @@ using System.Collections.Generic;
 namespace DesignPatternChallenge.Builders
 {
     /// <summary>
-    /// Classe base não-genérica para conter o estado e permitir acesso pelo SalesReport
+    /// Non-generic base class to hold state and allow access by SalesReport
     /// </summary>
     public abstract class SalesReportBuilderInternal
     {
-        // Estado interno do builder (todos nullable pois começam não inicializados)
+        // Internal builder state (all nullable as they start unitialized)
         protected string? _title;
         protected string? _format;
         protected DateTime _startDate;
@@ -31,7 +31,7 @@ namespace DesignPatternChallenge.Builders
         protected string? _companyLogo;
         protected string? _waterMark;
 
-        // Propriedades internas para acesso pelo Product
+        // Internal properties for access by Product
         internal string? GetTitle() => _title;
         internal string? GetFormat() => _format;
         internal DateTime GetStartDate() => _startDate;

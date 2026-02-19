@@ -3,7 +3,7 @@ using System;
 namespace DesignPatternChallenge.Builders
 {
     /// <summary>
-    /// Builder especializado para relatórios em Excel
+    /// Specialized builder for Excel reports
     /// </summary>
     public class ExcelReportBuilder : SalesReportBuilderBase<ExcelReportBuilder>
     {
@@ -14,13 +14,13 @@ namespace DesignPatternChallenge.Builders
 
         public ExcelReportBuilder WithAutoFilter()
         {
-            Console.WriteLine("[Excel] Auto-filtro habilitado");
+            Console.WriteLine("[Excel] Auto-filter enabled");
             return this;
         }
 
         public ExcelReportBuilder WithMultipleSheets(int sheetCount)
         {
-            Console.WriteLine($"[Excel] {sheetCount} planilhas configuradas");
+            Console.WriteLine($"[Excel] {sheetCount} sheets configured");
             return this;
         }
     }
